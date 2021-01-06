@@ -1,0 +1,38 @@
+{
+    "name": "chaos-php/chaos-monkey-symfony-bundle",
+    "type": "library",
+    "description": "Chaos Monkey for Symfony applications",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Arkadiusz Kondas",
+            "email": "arkadiusz.kondas@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/framework-bundle": "^5.2",
+        "akondas/php-runtime": "^0.1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "friendsofphp/php-cs-fixer": "^2.16"
+    },
+    "autoload": {
+        "psr-4": {
+            "Chaos\\Monkey\\Symfony\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Chaos\\Monkey\\Symfony\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "check-cs": [
+            "php-cs-fixer fix --dry-run --diff"
+        ],
+        "fix-cs": [
+            "php-cs-fixer fix"
+        ]
+    }
+}
