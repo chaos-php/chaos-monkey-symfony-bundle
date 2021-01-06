@@ -37,3 +37,11 @@ chaos_monkey:
     watchers: # currently watchers can be enabled/disabled only in container compile time
         request: true
 ```
+
+## License
+
+ChaosMonkeySymfonyBundle is released under the MIT Licence. See the bundled LICENSE file for details.
+
+## Author
+
+Arkadiusz Kondas (@ArkadiuszKondas)
