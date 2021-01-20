@@ -28,11 +28,11 @@
             <argument type="service" id="chaos_monkey.settings" />
         </service>
 
-        <service id="chaos_monkey.assault.memory" class="Chaos\Monkey\Symfony\Assault\ExceptionAssault" public="false">
+        <service id="chaos_monkey.assault.exception" class="Chaos\Monkey\Symfony\Assault\ExceptionAssault" public="false">
             <argument type="service" id="chaos_monkey.settings" />
         </service>
 
-        <service id="chaos_monkey.assault.memory" class="Chaos\Monkey\Symfony\Assault\KillAppAssault" public="false">
+        <service id="chaos_monkey.assault.kill_app" class="Chaos\Monkey\Symfony\Assault\KillAppAssault" public="false">
             <argument type="service" id="chaos_monkey.settings" />
         </service>
     </services>

@@ -26,20 +26,20 @@ class ChaosMonkeyExtension extends Extension
     private function setChaosMonkeySettings(ContainerBuilder $container, array $config): void
     {
         $definition = $container->getDefinition('chaos_monkey.settings');
-        $definition->addMethodCall('setEnabled', $config['enabled']);
-        $definition->addMethodCall('setProbability', $config['probability']);
+        $definition->addMethodCall('setEnabled', [$config['enabled']]);
+        $definition->addMethodCall('setProbability', [$config['probability']]);
 
-        $definition->addMethodCall('setLatencyActive', $config['assaults']['latency']['active']);
-        $definition->addMethodCall('setLatencyMinMs', $config['assaults']['latency']['minimum']);
-        $definition->addMethodCall('setLatencyMaxMs', $config['assaults']['latency']['maximum']);
+        $definition->addMethodCall('setLatencyActive', [$config['assaults']['latency']['active']]);
+        $definition->addMethodCall('setLatencyMinMs', [$config['assaults']['latency']['minimum']]);
+        $definition->addMethodCall('setLatencyMaxMs', [$config['assaults']['latency']['maximum']]);
 
-        $definition->addMethodCall('setMemoryActive', $config['assaults']['memory']['active']);
-        $definition->addMethodCall('setMemoryFillTargetFraction', $config['assaults']['memory']['fill_fraction']);
+        $definition->addMethodCall('setMemoryActive', [$config['assaults']['memory']['active']]);
+        $definition->addMethodCall('setMemoryFillTargetFraction', [$config['assaults']['memory']['fill_fraction']]);
 
-        $definition->addMethodCall('setExceptionActive', $config['assaults']['exception']['active']);
-        $definition->addMethodCall('setExceptionClass', $config['assaults']['exception']['active']);
+        $definition->addMethodCall('setExceptionActive', [$config['assaults']['exception']['active']]);
+        $definition->addMethodCall('setExceptionClass', [$config['assaults']['exception']['class']]);
 
-        $definition->addMethodCall('setKillAppActive', $config['assaults']['kill_app']['active']);
+        $definition->addMethodCall('setKillAppActive', [$config['assaults']['kill_app']['active']]);
     }
 
     private function enableWatchers(ContainerBuilder $container, array $config): void

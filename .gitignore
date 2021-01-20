@@ -7,3 +7,4 @@
 .phpunit.cache
 /coverage
 /clover.xml
+/var

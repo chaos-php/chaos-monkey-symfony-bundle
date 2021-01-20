@@ -2,6 +2,14 @@
     "name": "chaos-php/chaos-monkey-symfony-bundle",
     "type": "library",
     "description": "Chaos Monkey for Symfony applications",
+    "keywords": [
+        "php",
+        "symfony",
+        "chaos-monkey",
+        "chaos-engineering",
+        "chaos-tests",
+        "quality-assurance"
+    ],
     "license": "MIT",
     "authors": [
         {
@@ -10,12 +18,15 @@
         }
     ],
     "require": {
-        "symfony/framework-bundle": "^5.2",
+        "php": "^7.4 || ^8.0",
         "akondas/php-runtime": "^0.1.0"
     },
     "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.16",
         "phpunit/phpunit": "^9.5",
-        "friendsofphp/php-cs-fixer": "^2.16"
+        "symfony/browser-kit": "^5.2",
+        "symfony/framework-bundle": "^5.2",
+        "symfony/stopwatch": "^5.2"
     },
     "autoload": {
         "psr-4": {
@@ -28,11 +39,18 @@
         }
     },
     "scripts": {
+        "build": [
+            "@check-cs",
+            "@phpunit"
+        ],
         "check-cs": [
             "php-cs-fixer fix --dry-run --diff"
         ],
         "fix-cs": [
             "php-cs-fixer fix"
+        ],
+        "phpunit": [
+            "phpunit"
         ]
     }
 }
