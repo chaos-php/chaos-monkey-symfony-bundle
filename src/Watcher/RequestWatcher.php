@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Chaos\Monkey\Symfony\Watcher;
 
-use Chaos\Monkey\Symfony\ChaosMonkey;
+use Chaos\Monkey\ChaosMonkey;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 
 class RequestWatcher
