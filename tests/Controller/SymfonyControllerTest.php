@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Chaos\Monkey\Symfony\Tests\Controller;
 
+use Chaos\Monkey\Settings;
 use Chaos\Monkey\Symfony\ChaosMonkeyBundle;
-use Chaos\Monkey\Symfony\Settings;
 use PHPUnit\Framework\TestCase;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;

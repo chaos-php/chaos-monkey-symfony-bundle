@@ -19,7 +19,7 @@
     ],
     "require": {
         "php": "^7.4 || ^8.0",
-        "akondas/php-runtime": "^0.1.0"
+        "chaos-php/chaos-monkey": "^1.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",

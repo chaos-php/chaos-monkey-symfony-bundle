@@ -4,10 +4,10 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="chaos_monkey.settings" class="Chaos\Monkey\Symfony\Settings" public="false">
+        <service id="chaos_monkey.settings" class="Chaos\Monkey\Settings" public="false">
         </service>
 
-        <service id="chaos_monkey" class="Chaos\Monkey\Symfony\ChaosMonkey" public="true">
+        <service id="chaos_monkey" class="Chaos\Monkey\ChaosMonkey" public="true">
             <argument type="tagged_iterator" tag="chaos_monkey.assault"/>
             <argument type="service" id="chaos_monkey.settings" />
         </service>
@@ -16,23 +16,23 @@
             <argument type="service" id="chaos_monkey" />
         </service>
 
-        <instanceof id="Chaos\Monkey\Symfony\Assault" autowire="true">
+        <instanceof id="Chaos\Monkey\Assault" autowire="true">
             <tag name="chaos_monkey.assault"/>
         </instanceof>
 
-        <service id="chaos_monkey.assault.latency" class="Chaos\Monkey\Symfony\Assault\LatencyAssault" public="false">
+        <service id="chaos_monkey.assault.latency" class="Chaos\Monkey\Assault\LatencyAssault" public="false">
             <argument type="service" id="chaos_monkey.settings" />
         </service>
 
-        <service id="chaos_monkey.assault.memory" class="Chaos\Monkey\Symfony\Assault\MemoryAssault" public="false">
+        <service id="chaos_monkey.assault.memory" class="Chaos\Monkey\Assault\MemoryAssault" public="false">
             <argument type="service" id="chaos_monkey.settings" />
         </service>
 
-        <service id="chaos_monkey.assault.exception" class="Chaos\Monkey\Symfony\Assault\ExceptionAssault" public="false">
+        <service id="chaos_monkey.assault.exception" class="Chaos\Monkey\Assault\ExceptionAssault" public="false">
             <argument type="service" id="chaos_monkey.settings" />
         </service>
 
-        <service id="chaos_monkey.assault.kill_app" class="Chaos\Monkey\Symfony\Assault\KillAppAssault" public="false">
+        <service id="chaos_monkey.assault.kill_app" class="Chaos\Monkey\Assault\KillAppAssault" public="false">
             <argument type="service" id="chaos_monkey.settings" />
         </service>
     </services>
