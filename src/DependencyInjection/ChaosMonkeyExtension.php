@@ -44,9 +44,12 @@ class ChaosMonkeyExtension extends Extension
 
     private function enableWatchers(ContainerBuilder $container, array $config): void
     {
-        if ($config['watchers']['request'] === true) {
+        if ($config['watchers']['request']['enabled'] === true) {
             $requestWatcher = $container->getDefinition('chaos_monkey.watcher.request');
-            $requestWatcher->addTag('kernel.event_listener', ['event' => 'kernel.request']);
+            $requestWatcher->addTag('kernel.event_listener', [
+                'event' => 'kernel.request',
+                'priority' => $config['watchers']['request']['priority'],
+            ]);
         }
     }
 }

@@ -56,7 +56,9 @@ chaos_monkey:
         kill_app:
             active: false
     watchers: # currently watchers can be enabled/disabled only in container compile time
-        request: true
+        request:
+            enabled: true
+            priority: 0
 ```
 
 ## Roadmap
