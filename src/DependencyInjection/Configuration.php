@@ -57,7 +57,12 @@ class Configuration implements ConfigurationInterface
             ->arrayNode('watchers')
                 ->addDefaultsIfNotSet()
                 ->children()
-                    ->booleanNode('request')->defaultTrue()->end()
+                    ->arrayNode('request')
+                        ->canBeDisabled()
+                        ->children()
+                            ->integerNode('priority')->defaultValue(0)->end()
+                        ->end()
+                    ->end()
                 ->end()
             ->end()
         ->end();
