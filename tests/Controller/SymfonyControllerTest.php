@@ -7,6 +7,7 @@ namespace Chaos\Monkey\Symfony\Tests\Controller;
 use Chaos\Monkey\Settings;
 use Chaos\Monkey\Symfony\ChaosMonkeyBundle;
 use PHPUnit\Framework\TestCase;
+use Psr\Log\NullLogger;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
@@ -109,6 +110,8 @@ class SymfonyControllerKernel extends Kernel
         $c->extension('framework', [
             'secret' => 'S0ME_SECRET',
         ]);
+
+        $c->services()->set('logger', NullLogger::class);
     }
 
     protected function configureRoutes(RoutingConfigurator $routes)
