@@ -1,8 +1,9 @@
 # ChaosMonkeySymfonyBundle
 
 [![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.4-8892BF.svg)](https://php.net/)
+![Symfony Versions Supported](https://img.shields.io/endpoint?url=https%3A%2F%2Fshields.mrgoodbytes.dev%2Fshield%2Fsymfony%2F%255E5.2&logoColor=FFF&style=flat)
 [![Latest Stable Version](https://poser.pugx.org/chaos-php/chaos-monkey-symfony-bundle/v/stable?format=flat)](https://packagist.org/packages/chaos-php/chaos-monkey-symfony-bundle)
-[![buddy branch](https://app.buddy.works/akondas/chaos-monkey-symfony-bundle/repository/branch/master/badge.svg?token=bfd952ec0cee0cb4db84dbd50ded487354ee6c9f37a7034f7c46425fed70dea7 "buddy branch")](https://app.buddy.works/akondas/chaos-monkey-symfony-bundle/repository/branch/master)
+[![build](https://github.com/chaos-php/chaos-monkey-symfony-bundle/actions/workflows/ci.yml/badge.svg)](https://github.com/chaos-php/chaos-monkey/actions/workflows/build.yml)
 ![GitHub](https://img.shields.io/github/license/chaos-php/chaos-monkey-symfony-bundle)
 
 Chaos Monkey for Symfony applications. Try to attack your running Symfony App.
@@ -19,6 +20,8 @@ Chaos Monkey for Symfony applications. Try to attack your running Symfony App.
  - **Request** - attack http request
  - Repository (not implemented)
  - Service (not implemented)
+
+## Symfony 
 
 ## How to use
 
