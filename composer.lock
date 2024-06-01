@@ -4,25 +4,26 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f6a99df1e9ac4e88142fdd88f6a36c86",
+    "content-hash": "d824c28729f5f862d9fc512316468de2",
     "packages": [
         {
             "name": "akondas/php-runtime",
-            "version": "0.1.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/akondas/php-runtime.git",
-                "reference": "99aedbf9b522416bd45a9155b4283cb58fddf506"
+                "reference": "75760ea45bca38abe3c607d4aa1877d246291789"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/akondas/php-runtime/zipball/99aedbf9b522416bd45a9155b4283cb58fddf506",
-                "reference": "99aedbf9b522416bd45a9155b4283cb58fddf506",
+                "url": "https://api.github.com/repos/akondas/php-runtime/zipball/75760ea45bca38abe3c607d4aa1877d246291789",
+                "reference": "75760ea45bca38abe3c607d4aa1877d246291789",
                 "shasum": ""
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.17",
-                "php-mock/php-mock-phpunit": "^2.6",
+                "friendsofphp/php-cs-fixer": "^3.58",
+                "php-mock/php-mock-phpunit": "^2.10",
+                "phpstan/phpstan": "^1.11",
                 "phpunit/phpunit": "^9.5"
             },
             "type": "library",
@@ -41,33 +42,34 @@
                     "email": "arkadiusz.kondas@gmail.com"
                 }
             ],
-            "description": "PHP Runtime class provides methods to get total and free memoryy",
+            "description": "PHP Runtime class provides methods to get total and free memory",
             "support": {
                 "issues": "https://github.com/akondas/php-runtime/issues",
-                "source": "https://github.com/akondas/php-runtime/tree/0.1.0"
+                "source": "https://github.com/akondas/php-runtime/tree/1.1.0"
             },
-            "time": "2020-12-23T14:05:15+00:00"
+            "time": "2024-06-01T15:13:39+00:00"
         },
         {
             "name": "chaos-php/chaos-monkey",
-            "version": "1.0.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/chaos-php/chaos-monkey.git",
-                "reference": "6415a3f9c36aab158f094c10b2c2e43ed4cdaf19"
+                "reference": "71904ee8de8628bf294ae1eeba437fa3fc4d5d9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/chaos-php/chaos-monkey/zipball/6415a3f9c36aab158f094c10b2c2e43ed4cdaf19",
-                "reference": "6415a3f9c36aab158f094c10b2c2e43ed4cdaf19",
+                "url": "https://api.github.com/repos/chaos-php/chaos-monkey/zipball/71904ee8de8628bf294ae1eeba437fa3fc4d5d9f",
+                "reference": "71904ee8de8628bf294ae1eeba437fa3fc4d5d9f",
                 "shasum": ""
             },
             "require": {
-                "akondas/php-runtime": "^0.1.0",
-                "php": "^7.4 || ^8.0"
+                "akondas/php-runtime": "^1.1",
+                "php": "^8.1"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.16",
+                "friendsofphp/php-cs-fixer": "^3.27",
+                "phpstan/phpstan": "^1.11",
                 "phpunit/phpunit": "^9.5",
                 "symfony/browser-kit": "^5.2",
                 "symfony/framework-bundle": "^5.2",
@@ -99,9 +101,9 @@
             ],
             "support": {
                 "issues": "https://github.com/chaos-php/chaos-monkey/issues",
-                "source": "https://github.com/chaos-php/chaos-monkey/tree/1.0.0"
+                "source": "https://github.com/chaos-php/chaos-monkey/tree/1.1.1"
             },
-            "time": "2021-01-28T18:53:00+00:00"
+            "time": "2024-06-01T19:14:27+00:00"
         }
     ],
     "packages-dev": [
