@@ -53,5 +53,10 @@
         "phpunit": [
             "phpunit"
         ]
+    },
+    "config": {
+        "platform": {
+            "php": "8.1"
+        }
     }
 }
