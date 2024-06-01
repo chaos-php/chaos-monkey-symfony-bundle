@@ -19,13 +19,14 @@
     ],
     "require": {
         "php": "^7.4 || ^8.0",
-        "chaos-php/chaos-monkey": "^1.0"
+        "chaos-php/chaos-monkey": "1.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",
         "phpunit/phpunit": "^9.5",
         "symfony/browser-kit": "^5.2",
         "symfony/framework-bundle": "^5.2",
+        "symfony/http-kernel": "^5.2",
         "symfony/stopwatch": "^5.2"
     },
     "autoload": {
