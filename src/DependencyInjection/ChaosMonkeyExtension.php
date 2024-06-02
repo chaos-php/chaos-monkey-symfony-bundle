@@ -21,6 +21,10 @@ use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
  *     },
  *     watchers: array{
  *      request: array{enabled: bool, priority: int}
+ *     },
+ *     activators: array{
+ *      query_param: bool,
+ *      query_param_name: string
  *     }
  * }
  */
@@ -39,6 +43,7 @@ class ChaosMonkeyExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $this->setChaosMonkeySettings($container, $config);
+        $this->setActivators($container, $config);
         $this->enableWatchers($container, $config);
     }
 
@@ -76,5 +81,17 @@ class ChaosMonkeyExtension extends Extension
                 'priority' => $config['watchers']['request']['priority'],
             ]);
         }
+    }
+
+    /**
+     * @param ConfigArray $config
+     */
+    private function setActivators(ContainerBuilder $container, array $config): void
+    {
+        $queryParam = $container->getDefinition('chaos_monkey.activator.query_param');
+        $queryParam->setArguments([
+            '$enabled' => $config['activators']['query_param'],
+            '$paramName' => $config['activators']['query_param_name'],
+        ]);
     }
 }

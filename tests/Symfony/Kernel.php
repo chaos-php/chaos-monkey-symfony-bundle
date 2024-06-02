@@ -29,6 +29,7 @@ final class Kernel extends SymfonyKernel
     {
         $container->extension('framework', [
             'secret' => 'S0ME_SECRET',
+            'test' => true,
         ]);
 
         $container->services()->set('logger', NullLogger::class);

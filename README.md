@@ -21,6 +21,10 @@ Chaos Monkey for Symfony applications. Try to attack your running Symfony App.
  - Repository (not implemented)
  - Service (not implemented)
 
+## Activators
+
+ - "Query param" - attack only if given query param is present (default `chaos`)
+
 ## Symfony 
 
 ## How to use
@@ -62,10 +66,12 @@ chaos_monkey:
         request:
             enabled: true
             priority: 0
+    activators:
+       query_param: false # if true then chaos monkey will be called only if given query param exist (with any value)
+       query_param_name: 'chaos'
 ```
 
 ## Roadmap
- - [ ] Query param activator
  - [ ] Flex recipe
  - [ ] Metrics (for example `chaos_monkey_request_count_assaulted`)
  - [ ] Assault profiles - each profile can contain different assaults

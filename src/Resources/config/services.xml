@@ -14,6 +14,10 @@
 
         <service id="chaos_monkey.watcher.request" class="Chaos\Monkey\Symfony\Watcher\RequestWatcher" public="false">
             <argument type="service" id="chaos_monkey" />
+            <argument type="service" id="chaos_monkey.activator.query_param" />
+        </service>
+
+        <service id="chaos_monkey.activator.query_param" class="Chaos\Monkey\Symfony\Activator\QueryParamActivator" public="false">
         </service>
 
         <instanceof id="Chaos\Monkey\Assault" autowire="true">
