@@ -1,7 +1,7 @@
 # ChaosMonkeySymfonyBundle
 
 [![Minimum PHP Version](https://img.shields.io/badge/php-%5E8.1-8892BF.svg)](https://php.net/)
-![Symfony Versions Supported](https://img.shields.io/badge/symfony-%5E6.4-green)
+![Symfony Versions Supported](https://img.shields.io/badge/symfony-%5E6.4%20%7C%7C%20%5E7.0-green)
 [![Packagist Version](https://img.shields.io/packagist/v/chaos-php/chaos-monkey-symfony-bundle)](https://packagist.org/packages/chaos-php/chaos-monkey-symfony-bundle)
 [![ci](https://github.com/chaos-php/chaos-monkey-symfony-bundle/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/chaos-php/chaos-monkey-symfony-bundle/actions/workflows/ci.yml)
 ![GitHub](https://img.shields.io/github/license/chaos-php/chaos-monkey-symfony-bundle)
