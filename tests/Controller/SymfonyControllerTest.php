@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace Chaos\Monkey\Symfony\Tests\Controller;
 
 use Chaos\Monkey\Settings;
+use Chaos\Monkey\Symfony\Activator\QueryParamActivator;
 use Chaos\Monkey\Symfony\Tests\Symfony\Kernel;
 use PHPUnit\Framework\TestCase;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
+use Symfony\Component\HttpKernel\Exception\LockedHttpException;
 use Symfony\Component\Stopwatch\Stopwatch;
 
 class SymfonyControllerTest extends TestCase
@@ -49,7 +51,22 @@ class SymfonyControllerTest extends TestCase
         $this->enableExceptionAssault();
         $this->client->request('GET', '/hello');
 
-        self::assertEquals(500, $this->client->getResponse()->getStatusCode());
+        self::assertEquals(423, $this->client->getResponse()->getStatusCode());
+
+        $this->disableExceptionAssault();
+    }
+
+    public function testRequestExceptionAttackWithQueryParamActivatorEnabled(): void
+    {
+        $this->enableQueryParamActivator();
+        $this->enableExceptionAssault();
+        $this->client->request('GET', '/hello');
+
+        self::assertEquals(200, $this->client->getResponse()->getStatusCode());
+
+        $this->client->request('GET', '/hello?chaos=true');
+
+        self::assertEquals(423, $this->client->getResponse()->getStatusCode());
 
         $this->disableExceptionAssault();
     }
@@ -58,6 +75,7 @@ class SymfonyControllerTest extends TestCase
     {
         $this->chaosMonkeySettings()->setEnabled(true);
         $this->chaosMonkeySettings()->setExceptionActive(true);
+        $this->chaosMonkeySettings()->setExceptionClass(LockedHttpException::class);
         $this->chaosMonkeySettings()->setProbability(100);
     }
 
@@ -83,5 +101,10 @@ class SymfonyControllerTest extends TestCase
     private function chaosMonkeySettings(): Settings
     {
         return $this->client->getContainer()->get('chaos_monkey')->settings();
+    }
+
+    private function enableQueryParamActivator(): void
+    {
+        $this->client->getContainer()->get('test.service_container')->set('chaos_monkey.activator.query_param', new QueryParamActivator(true));
     }
 }

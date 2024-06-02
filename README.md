@@ -62,6 +62,9 @@ chaos_monkey:
         request:
             enabled: true
             priority: 0
+    activators:
+       query_param: false # if true then chaos monkey will be called only if given query param exist (with any value)
+       query_param_name: 'chaos'
 ```
 
 ## Roadmap

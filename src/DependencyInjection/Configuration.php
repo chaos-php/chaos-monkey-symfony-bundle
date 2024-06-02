@@ -65,6 +65,13 @@ class Configuration implements ConfigurationInterface
                     ->end()
                 ->end()
             ->end()
+            ->arrayNode('activators')
+                ->addDefaultsIfNotSet()
+                ->children()
+                    ->booleanNode('query_param')->defaultFalse()->end()
+                    ->scalarNode('query_param_name')->defaultValue('chaos')->end()
+                ->end()
+            ->end()
         ->end();
 
         return $treeBuilder;

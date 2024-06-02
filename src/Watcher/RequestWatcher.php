@@ -5,15 +5,15 @@ declare(strict_types=1);
 namespace Chaos\Monkey\Symfony\Watcher;
 
 use Chaos\Monkey\ChaosMonkey;
+use Chaos\Monkey\Symfony\Activator\QueryParamActivator;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 
-class RequestWatcher
+final class RequestWatcher
 {
-    private ChaosMonkey $chaosMonkey;
-
-    public function __construct(ChaosMonkey $chaosMonkey)
-    {
-        $this->chaosMonkey = $chaosMonkey;
+    public function __construct(
+        private readonly ChaosMonkey $chaosMonkey,
+        private readonly QueryParamActivator $queryParamActivator
+    ) {
     }
 
     public function onKernelRequest(RequestEvent $event): void
@@ -22,6 +22,8 @@ class RequestWatcher
             return;
         }
 
-        $this->chaosMonkey->call();
+        if ($this->queryParamActivator->inChaos($event->getRequest())) {
+            $this->chaosMonkey->call();
+        }
     }
 }
