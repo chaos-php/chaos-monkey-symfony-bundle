@@ -27,7 +27,9 @@
         "symfony/browser-kit": "^6.4",
         "symfony/framework-bundle": "^6.4",
         "symfony/http-kernel": "^6.4",
-        "symfony/stopwatch": "^6.4"
+        "symfony/stopwatch": "^6.4",
+        "phpstan/phpstan": "^1.11",
+        "phpstan/phpstan-symfony": "^1.4"
     },
     "autoload": {
         "psr-4": {
@@ -43,6 +45,7 @@
         "ci": [
             "composer validate",
             "@check-cs",
+            "@phpstan",
             "@phpunit"
         ],
         "check-cs": [
@@ -53,6 +56,9 @@
         ],
         "phpunit": [
             "phpunit"
+        ],
+        "phpstan": [
+            "phpstan analyse -c phpstan.neon"
         ]
     },
     "config": {
