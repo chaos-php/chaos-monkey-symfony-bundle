@@ -5,16 +5,9 @@ declare(strict_types=1);
 namespace Chaos\Monkey\Symfony\Tests\Controller;
 
 use Chaos\Monkey\Settings;
-use Chaos\Monkey\Symfony\ChaosMonkeyBundle;
+use Chaos\Monkey\Symfony\Tests\Symfony\Kernel;
 use PHPUnit\Framework\TestCase;
-use Psr\Log\NullLogger;
-use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
-use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Kernel;
-use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 use Symfony\Component\Stopwatch\Stopwatch;
 
 class SymfonyControllerTest extends TestCase
@@ -23,7 +16,7 @@ class SymfonyControllerTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->client = new KernelBrowser($kernel = new SymfonyControllerKernel('test', false));
+        $this->client = new KernelBrowser($kernel = new Kernel('test', true));
         $this->client->disableReboot();
         $kernel->boot();
     }
@@ -90,37 +83,5 @@ class SymfonyControllerTest extends TestCase
     private function chaosMonkeySettings(): Settings
     {
         return $this->client->getContainer()->get('chaos_monkey')->settings();
-    }
-}
-
-class SymfonyControllerKernel extends Kernel
-{
-    use MicroKernelTrait;
-
-    public function registerBundles(): iterable
-    {
-        return [
-            new FrameworkBundle(),
-            new ChaosMonkeyBundle(),
-        ];
-    }
-
-    protected function configureContainer(ContainerConfigurator $c): void
-    {
-        $c->extension('framework', [
-            'secret' => 'S0ME_SECRET',
-        ]);
-
-        $c->services()->set('logger', NullLogger::class);
-    }
-
-    protected function configureRoutes(RoutingConfigurator $routes)
-    {
-        $routes->add('home', '/hello')->controller([$this, 'hello']);
-    }
-
-    public function hello(): Response
-    {
-        return new Response('Hello world');
     }
 }

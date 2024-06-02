@@ -1,0 +1,13 @@
+includes:
+	- vendor/phpstan/phpstan/conf/bleedingEdge.neon
+	- vendor/phpstan/phpstan-symfony/extension.neon
+	- vendor/phpstan/phpstan-symfony/rules.neon
+
+parameters:
+	phpVersion: 80100
+	level: max
+	paths:
+		- src
+		- tests
+	symfony:
+		containerXmlPath: var/cache/test/Chaos_Monkey_Symfony_Tests_Symfony_KernelTestDebugContainer.xml
